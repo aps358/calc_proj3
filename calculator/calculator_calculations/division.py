@@ -10,7 +10,7 @@ class Division(Calculation):
 
     def getresult(self):
         """ Using self to reference the data contained in the object instance """
-        division_of_values = 1.0
-        for value in self.values:
-            division_of_values = value / division_of_values
-        return division_of_values
+        division_of_values = self.values[0]
+        for value in self.values[1:]:
+            division_of_values = division_of_values / value
+        return round(division_of_values, 3)

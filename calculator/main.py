@@ -35,6 +35,10 @@ class Calculator:
     @staticmethod
     def divide_nums(*args):
         """ Divides given list of numbers and appends the result to history """
-        division = Division(args).getresult()
-        History.add_calculation_to_history(division)
-        return History.get_last_calculation_added()
+        try:
+            division = Division(args).getresult()
+            History.add_calculation_to_history(division)
+        except ZeroDivisionError:
+            return 0.0
+        else:
+            return History.get_last_calculation_added()
