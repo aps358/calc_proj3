@@ -1,1 +1,1 @@
-# Flash Messages and Validation
+# Beautify Tables
