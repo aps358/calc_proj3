@@ -20,24 +20,24 @@ class Calculator:
     @staticmethod
     def addition(args: tuple):
         """ Adds given list of numbers and appends the result to history """
-        History.add_addition_to_history(args)
-        return True
+        print(History.add_addition_to_history(args))
+        return History.add_addition_to_history(args)
 
     @staticmethod
     def subtraction(args: tuple):
         """ Subtracts given list of numbers and appends the result to history """
-        History.add_subtraction_to_history(args)
-        return True
+
+        return History.add_subtraction_to_history(args)
 
 
     @staticmethod
     def multiplication(args: tuple):
         """ Multiplies given list of numbers and appends the result to history """
-        History.add_multiplication_to_history(args)
-        return True
+
+        return History.add_multiplication_to_history(args)
 
     @staticmethod
     def division(args: tuple):
         """ Divides given list of numbers and appends the result to history """
-        History.add_division_to_history(args)
-        return True
+
+        return History.add_division_to_history(args)
