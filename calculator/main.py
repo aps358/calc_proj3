@@ -1,8 +1,4 @@
 """ import all the methods from calc_methods"""
-from calculator.calculator_calculations.addition import Addition
-from calculator.calculator_calculations.subtraction import Subtraction
-from calculator.calculator_calculations.multiplication import Multiplication
-from calculator.calculator_calculations.division import Division
 from calculator.history_calculations.history_calculations import History
 
 
@@ -12,29 +8,33 @@ class Calculator:
     history = []
 
     @staticmethod
-    def add_nums(*args):
+    def get_last_result_value():
+        """ This is the gets the result of the calculation"""
+        # I made this method so that I don't have more than one action per function
+        History.get_last_calculation_added()
+        return True
+
+    @staticmethod
+    def addition(*args):
         """ Adds given list of numbers and appends the result to history """
-        addition = Addition(args).getresult()
-        History.add_calculation_to_history(addition)
-        return History.get_last_calculation_added()
+        History.add_addition_to_history(args)
+        return True
 
     @staticmethod
-    def subtract_nums(*args):
+    def subtraction(*args):
         """ Subtracts given list of numbers and appends the result to history """
-        subtraction = Subtraction(args).getresult()
-        History.add_calculation_to_history(subtraction)
-        return History.get_last_calculation_added()
+        History.add_subtraction_to_history(args)
+        return True
+
 
     @staticmethod
-    def multiply_nums(*args):
+    def multiplication(*args):
         """ Multiplies given list of numbers and appends the result to history """
-        multiplication = Multiplication(args).getresult()
-        History.add_calculation_to_history(multiplication)
-        return History.get_last_calculation_added()
+        History.add_multiplication_to_history(args)
+        return True
 
     @staticmethod
-    def divide_nums(*args):
+    def division(*args):
         """ Divides given list of numbers and appends the result to history """
-        division = Division(args).getresult()
-        History.add_calculation_to_history(division)
-        return History.get_last_calculation_added()
+        History.add_division_to_history(args)
+        return True

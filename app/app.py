@@ -4,10 +4,12 @@ from flask import render_template
 from calculator.main import Calculator
 app = Flask(__name__)
 
+
 @app.route("/")
 def index():
     """index  Route Response"""
     return render_template('index.html')
+
 
 @app.route("/basicform", methods=['GET', 'POST'])
 def basicform():
@@ -40,6 +42,6 @@ def bad_calc(value1, value2):
 def good_calc(value1, value2):
     """good calc Route Response"""
     my_tuple = (value1, value2)
-    Calculator.addition(my_tuple)
-    response = "The result of the calculation is: " + str(Calculator.get_last_result_value()) + '<a href="/"> back</a>'
+    ans = Calculator.addition(my_tuple)
+    response = "The result of the calculation is: " + str(ans) + '<a href="/"> back</a>'
     return response
