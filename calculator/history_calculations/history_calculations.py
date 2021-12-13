@@ -38,19 +38,19 @@ class History:
     @staticmethod
     def add_addition_to_history(values):
         """ Adds addition to history """
-        return History.add_calculation_to_history(Addition(values))
+        return History.add_calculation_to_history(Addition.create(values).getresult())
 
     @staticmethod
     def add_subtraction_to_history(values):
         """ Adds subtraction to history """
-        return History.add_calculation_to_history(Subtraction(values))
+        return History.add_calculation_to_history(Subtraction.create(values).getresult())
 
     @staticmethod
     def add_multiplication_to_history(values):
         """ Adds multiplication to history """
-        return History.add_calculation_to_history(Multiplication(values))
+        return History.add_calculation_to_history(Multiplication.create(values).getresult())
 
     @staticmethod
     def add_division_to_history(values):
         """ Adds division to history """
-        return History.add_calculation_to_history(Division(values))
+        return History.add_calculation_to_history(Division.create(values).getresult())

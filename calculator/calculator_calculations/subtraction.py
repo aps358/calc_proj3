@@ -10,7 +10,7 @@ class Subtraction(Calculation):
 
     def getresult(self):
         """ Using self to reference the data contained in the object instance """
-        subtraction_of_values = 0.0
-        for value in self.values:
+        subtraction_of_values = self.values[0]
+        for value in self.values[1:]:
             subtraction_of_values = subtraction_of_values - value
         return subtraction_of_values
