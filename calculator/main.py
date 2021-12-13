@@ -9,36 +9,35 @@ from calculator.history_calculations.history_calculations import History
 class Calculator:
     """ Creating a Module Calculator """
     # result set to 0 for initialization
-    history = []
 
     @staticmethod
-    def add_nums(*args):
+    def get_last_result_value():
+        """ This is the gets the result of the calculation"""
+        # I made this method so that I don't have more than one action per function
+        print(History.get_last_calculation_added())
+        return History.get_last_calculation_added()
+
+    @staticmethod
+    def addition(args: tuple):
         """ Adds given list of numbers and appends the result to history """
-        addition = Addition(args).getresult()
-        History.add_calculation_to_history(addition)
-        return History.get_last_calculation_added()
+        History.add_addition_to_history(args)
+        return True
 
     @staticmethod
-    def subtract_nums(*args):
+    def subtraction(args: tuple):
         """ Subtracts given list of numbers and appends the result to history """
-        subtraction = Subtraction(args).getresult()
-        History.add_calculation_to_history(subtraction)
-        return History.get_last_calculation_added()
+        History.add_subtraction_to_history(args)
+        return True
+
 
     @staticmethod
-    def multiply_nums(*args):
+    def multiplication(args: tuple):
         """ Multiplies given list of numbers and appends the result to history """
-        multiplication = Multiplication(args).getresult()
-        History.add_calculation_to_history(multiplication)
-        return History.get_last_calculation_added()
+        History.add_multiplication_to_history(args)
+        return True
 
     @staticmethod
-    def divide_nums(*args):
+    def division(args: tuple):
         """ Divides given list of numbers and appends the result to history """
-        try:
-            division = Division(args).getresult()
-            History.add_calculation_to_history(division)
-        except ZeroDivisionError:
-            return 0.0
-        else:
-            return History.get_last_calculation_added()
+        History.add_division_to_history(args)
+        return True
