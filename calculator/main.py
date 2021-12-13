@@ -1,4 +1,8 @@
 """ import all the methods from calc_methods"""
+from calculator.calculator_calculations.addition import Addition
+from calculator.calculator_calculations.subtraction import Subtraction
+from calculator.calculator_calculations.multiplication import Multiplication
+from calculator.calculator_calculations.division import Division
 from calculator.history_calculations.history_calculations import History
 
 

@@ -1,7 +1,5 @@
 """ Import Calculation Parent Class Constructor """
-
 from calculator.calculator_calculations.calculation import Calculation
-
 # This is addition method which inherits the calculation class constructor
 
 
@@ -13,4 +11,4 @@ class Addition(Calculation):
         sum_of_values = 0.0
         for value in self.values:
             sum_of_values = sum_of_values + value
-        return sum_of_values
+        return round(sum_of_values, 3)
