@@ -17,7 +17,7 @@
 <body>
 <div id="primary_container">
     <nav class="navbar container-fluid navbar-expand-lg navbar-toggle bg-dark">
-        <a class="navbar-brand" href="#">Project 3</a>
+        <a class="navbar-brand" href="/">Project 3</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,30 +28,12 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/basicform">Basic HTML Form</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Flask Form</a>
+                    <a class="nav-link" href="/basicform">Beautiful Tables</a>
                 </li>
             </ul>
         </div>
     </nav>
     <div class="container-fluid" id="content">
-
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-warning alert-dismissible" role="alert">
-            {{ message }}
-
-            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span
-                    style="float:right">&times;</span></a>
-        </div>
-        {% endfor %}
-
-        {% endif %}
-        {% endwith %}
-
         <div class="text-center">
             {% block content %}{% endblock %}
         </div>
