@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}
+Basic Form
+{% endblock %}
+
+{% block content %}
+
+
+<h1>HTML Form</h1>
+
+<div class="container-fluid">
+
+
+    <form action="basicform" method="POST" autocomplete="off">
+        <label for="value1">Value 1:</label>
+        <input type="text" id="value1" name="value1" placeholder="Enter an integer"><br/><br/>
+        <label for="value2">Value 2:</label>
+        <input type="text" id="value2" name="value2" placeholder="Enter an integer"><br/><br/>
+        <fieldset>
+            <legend>Calculator Operations</legend>
+            <div>
+                <input type="radio" name="operation" id="addition" value="addition" checked>
+                <label for="addition">Addition</label>
+            </div>
+            <div>
+                <input type="radio" name="operation" id="subtraction" value="subtraction">
+                <label for="subtraction">Subtraction</label>
+            </div>
+            <div>
+                <input type="radio" name="operation" id="multiplication" value="multiplication">
+                <label for="multiplication">Multiplication</label>
+            </div>
+            <div>
+                <input type="radio" name="operation" id="division" value="division">
+                <label for="division">Division</label>
+            </div>
+        </fieldset>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}
