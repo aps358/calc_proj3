@@ -15,6 +15,7 @@
     <table id="data" class="dataTable cell-border">
         <thead>
         <tr>
+            <th>Sr No.</th>
             <th>Value1</th>
             <th>Value2</th>
             <th>Operation</th>
@@ -26,6 +27,7 @@
         {% for item in list1 %}
         {% set subitem = item.split(',') %}
         <tr>
+            <td>{{ list1.index(item)+1 }}</td>
             <td>{{ subitem[0] }}</td>
             <td>{{ subitem[1] }}</td>
             <td>{{ subitem[2] }}</td>

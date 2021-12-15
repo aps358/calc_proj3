@@ -33,7 +33,7 @@ class CalculatorController(ControllerBase):
                 f.write(str1)
 
             with open('output.txt', 'r') as fr:
-                hist = fr.read()
+                hist = fr.read().strip()
 
             return render_template('result.html', val1=value1, val2=value2, ope=operation, res=result, hist=hist)
         return render_template('basicform.html')
