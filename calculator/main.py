@@ -10,7 +10,6 @@ class Calculator:
     def get_last_result_value():
         """ This is the gets the result of the calculation"""
         # I made this method so that I don't have more than one action per function
-        print(History.get_last_calculation_added())
         return History.get_last_calculation_added()
 
     @staticmethod
@@ -22,7 +21,6 @@ class Calculator:
     def subtraction(args: tuple):
         """ Subtracts given list of numbers and appends the result to history """
         return History.add_subtraction_to_history(args)
-
 
     @staticmethod
     def multiplication(args: tuple):
