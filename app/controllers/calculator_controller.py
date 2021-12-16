@@ -33,7 +33,7 @@ class CalculatorController(ControllerBase):
             df = pd.DataFrame(calculations, columns=['Value1', 'Value2', 'Operation', 'Result'])
             df.to_csv('output.csv', mode='a', index=False, header=False, sep=',')
 
-            hist = pd.read_csv('output.csv', skiprows=1).values.tolist()
+            hist = pd.read_csv('output.csv').values.tolist()
 
             return render_template('result.html', val1=value1, val2=value2, ope=operation, res=result, hist=hist)
         return render_template('basicform.html')
