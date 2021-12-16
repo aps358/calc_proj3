@@ -5,3 +5,4 @@
 30,10,multiplication,300.0
 50,5,division,10.0
 4,2,division,2.0
+10,20,division,0.5
