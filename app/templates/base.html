@@ -23,18 +23,46 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-end bg-dark" id="navbarNav">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/basicform">Beautiful Tables</a>
+                    <a class="nav-link" href="/basicform">Calculator</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/founder">Founders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/origin">Origin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/article1">Article 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/article2">Article 2</a>
+                </li>
+
             </ul>
         </div>
     </nav>
+
     <div class="container-fluid" id="content">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            {{ message }}
+
+            <a href="#" class="close" data-dismiss="alert" aria-label="close"><span
+                    style="float:right">&times;</span></a>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+        {% endwith %}
+
         <div class="text-center">
             {% block content %}{% endblock %}
         </div>
@@ -44,16 +72,21 @@
 
     <div id="footer">
         {% block footer %}
-        <footer class="sticky-footer bg-dark container-fluid mt-auto">
+        <footer class="sticky-footer bg-primary container-fluid mt-auto">
             <div class="container-fluid">
                 <div class="row text-center">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <a class="text-lead">&copy; Amey Sawant </a>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <span class="text-lead" id="github-link"> <a
+                                href="https://github.com/aps358/calc_proj3">GitHub Link</a></span>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <span class="text-lead">&copy; Amey Sawant </span>
                     </div>
                 </div>
             </div>
-            {% endblock %}
         </footer>
+        {% endblock %}
     </div>
 </div>
 
@@ -63,6 +96,7 @@
 <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1561436720/particles.js"></script>
 <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1561436735/app.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="js/myjavascript.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#data').DataTable();

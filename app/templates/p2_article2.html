@@ -1,0 +1,347 @@
+{% extends "base.html" %}
+{% block title %}Article2{% endblock %}
+
+{% block content %}
+
+    <!--There is where the body content will go-->
+    <div class="container-fluid" id="article2-content">
+        <!-- AAA Testing Content -->
+        <div class="container text-center">
+            <p class="h1">AAA Testing</p>
+            <br/><br/>
+            <p class="text-justify h3"><b>What is AAA Testing?</b></p>
+            <p class="lead text-justify">
+                The AAA pattern is a pattern for structuring tests. It breaks each test down into three parts - ARRANGE,
+                ACT, and ASSERT, where each part is a step leading to the next.
+                <br/><br/>
+                The <b>ARRANGE</b> step sets up the test’s input values.
+                <br/><br/>
+                The <b>ACT</b> step prompts the primary function being tested.
+                <br/><br/>
+                And finally, the <b>ASSERT</b> step verifies that the output of the function is what was expected.
+                <br/><br/>
+                All in all, the AAA pattern is only meant to be a guideline. It is a structure, or a way of thinking
+                about and arranging your tests so that they can be clearly understood. There is no package or
+                downloadable tool with documentation. Instead, it defers to you, the author, how best to create and use
+                it.
+            </p>
+            <br/>
+            <p class="h3 text-justify"><b>Why testing is important?</b></p>
+            <p class="text-justify lead">Software testing is a crucial component of software product development because
+                it improves
+                consistency and performance. The main benefit of testing is the identification and subsequent removal of
+                the errors.
+                However, testing also helps developers and testers to compare actual and expected results in order to
+                improve quality. If the software production happens without testing it, it could be useless or sometimes
+                dangerous for customers.
+            </p>
+
+            <p class="lead text-justify">
+                Let’s see the AAA Testing Pattern in action.
+                <br/><br/>
+                In order to do unit testing , we need to create a file called <i>calculator_test.py</i>, which will be
+                used for
+                testing our Calculator Code.
+            </p>
+
+            <pre class="text-left"><code>"""Importing Calculator Class from calculator > calculator_simple.py for Testing"""
+from calculator.calculator_simple import Calculator
+
+
+def test_calculator_result():
+    """ To check if calculator initial result is 0 """
+    # Arrange
+    calc_obj = Calculator()
+
+    # Act
+    result = calc_obj.get_result()
+
+    # Assert
+    assert result == 0
+
+
+def test_calculator_add():
+    """ To check if calculator addition result is correct """
+    # Arrange
+    num1 = 10
+    num2 = 20
+    calc_obj = Calculator()
+
+    # Act
+    calc_obj.addition(num1, num2)
+
+    # Assert
+    assert calc_obj.get_result() == 30
+
+
+def test_calculator_subtract():
+    """ To check if calculator subtraction result is correct """
+    # Arrange
+    num1 = 10
+    num2 = 20
+    calc_obj = Calculator()
+
+    # Act
+    calc_obj.subtraction(num1, num2)
+
+    # Assert
+    assert calc_obj.get_result() == -10
+
+
+def test_calculator_multiply():
+    """ To check if calculator multiplication result is correct """
+    # Arrange
+    num1 = 10
+    num2 = 20
+    calc_obj = Calculator()
+
+    # Act
+    calc_obj.multiplication(num1, num2)
+
+    # Assert
+    assert calc_obj.get_result() == 200
+
+
+def test_calculator_divide():
+    """ To check if calculator division result is correct"""
+    # Arrange
+    num1 = 20
+    num2 = 10
+    calc_obj = Calculator()
+
+    # Act
+    calc_obj.division(num1, num2)
+
+    # Assert
+    assert calc_obj.get_result() == 2</code></pre>
+
+            <p class="lead text-justify">
+                In the above code, we can see that for each test case, we have 3 sections viz. Arrange, Act and Assert.
+            </p>
+
+            <br/>
+            <p class="lead text-justify">
+                In ARRANGE, we are defining the values and instantiating an object of Calculator Class.
+            </p>
+            <pre class="text-left"><code># Arrange
+num1 = 10
+num2 = 20
+calc_obj = Calculator()</code></pre>
+            <br/>
+            <p class="lead text-justify">
+                In ACT, we are calling the required methods for performing actions such as addition, subtraction,
+                multiplication, division.
+            </p>
+            <pre class="text-left"><code># Act
+calc_obj.addition(num1, num2)</code></pre>
+            <br/>
+            <p class="lead text-justify">
+                In ASSERT, we check whether the output matches the required output or not.
+            </p>
+            <pre class="text-left"><code># Assert
+assert calc_obj.get_result == 30</code></pre>
+            <br/><br/>
+            <p class="lead text-justify">
+                This is how we write the python testing file, but in order to test the file and find whether everything
+                works correctly, we have to run following commands in terminal.
+            </p>
+            <pre class="text-left code-cmd"><code>~ $ pytest --pylint --cov</code></pre>
+            <br/><br/>
+            <p class="lead text-justify">
+                After running the above command, we get the following output-
+            </p>
+            <pre class="text-left code-cmd"><code>=================================================================== test session starts ====================================================================
+platform linux -- Python 3.9.9, pytest-6.2.5, py-1.11.0, pluggy-1.0.0
+rootdir: /home/myuser
+plugins: cov-3.0.0, pylint-0.18.0
+collected 8 items
+--------------------------------------------------------------------------------
+Linting files
+...
+--------------------------------------------------------------------------------
+
+calculator/calculator_simple.py .                                                                                                                     [ 12%]
+test/__init__.py .                                                                                                                                    [ 25%]
+test/calculator_test.py ......                                                                                                                        [100%]
+
+===================================================================== warnings summary =====================================================================
+.local/lib/python3.9/site-packages/astroid/nodes/scoped_nodes.py:682
+.local/lib/python3.9/site-packages/astroid/nodes/scoped_nodes.py:682
+  /home/myuser/.local/lib/python3.9/site-packages/astroid/nodes/scoped_nodes.py:682: DeprecationWarning: In astroid 3.0.0 NodeNG.statement() will return either a nodes.Statement or raise a StatementMissing exception. nodes.Module will no longer be considered a statement. This behaviour can already be triggered by passing 'future=True' to a statement() call.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+
+----------- coverage: platform linux, python 3.9.9-final-0 -----------
+Name                              Stmts   Miss  Cover
+-----------------------------------------------------
+calculator/calculator_simple.py      16      0   100%
+test/__init__.py                      0      0   100%
+test/calculator_test.py              29      0   100%
+-----------------------------------------------------
+TOTAL                                45      0   100%
+
+=============================================================== 8 passed, 2 warnings in 5.86s ==============================================================</code></pre>
+            <br/>
+            <p class="lead text-justify">
+                The above gives a summarized report of all the things such as the number of statements present in that
+                file, if missed any statements while testing and the coverage of the program.
+                <br/><br/>
+
+                Testing using external data can be done with the help of CSV files.
+                <br/><br/>
+                The csv files can be read using the <i>pandas</i> library.
+                <br/><br/>
+                It needs to be installed and which can be done using the following command in terminal.
+            </p>
+            <pre class="code-cmd text-left"><code>~ $ pip install pandas</code></pre>
+            <p class="lead text-justify">
+                Or the library can be included in the requirements.txt and the following command can be used.
+            </p>
+            <pre class="code-cmd text-left"><code>~ $ pip install -r requirements.txt</code></pre>
+            <p class="lead text-justify">
+                Once it's installed refer the following code for the implementation of the AAA testing using external
+                data in our Calculator program.
+            </p>
+            <pre class="text-left"><code>
+"""Importing Calculator Class from calculator > calculator_simple.py for Testing"""
+from calculator.calculator_simple import Calculator
+import pandas as pd
+
+csv_data = pd.read_csv('test/data.csv')
+num1 = csv_data['num_1'].values
+num2 = csv_data['num_2'].values
+add = [round(i, 3) for i in csv_data['add_nums'].values]
+sub = [round(i, 3) for i in csv_data['sub_nums'].values]
+multi = [round(i, 3) for i in csv_data['mult_nums'].values]
+div = [round(i, 3) for i in csv_data['div_nums'].values]
+length = len(add)
+
+
+def test_calculator_add():
+    """ To check if calculator addition result is correct """
+    # Arrange
+    calc_obj = Calculator()
+
+    # Act and Assert
+    for i in range(length):
+        assert calc_obj.addition(num1[i], num2[i]) == add[i]
+
+
+def test_calculator_subtract():
+    """ To check if calculator subtraction result is correct """
+    # Arrange
+    calc_obj = Calculator()
+
+    # Act and Assert
+    for i in range(length):
+        assert calc_obj.subtraction(num1[i], num2[i]) == sub[i]
+
+
+def test_calculator_multiply():
+    """ To check if calculator multiplication result is correct """
+    # Arrange
+    calc_obj = Calculator()
+
+    # Act and Assert
+    for i in range(length):
+        assert calc_obj.multiplication(num1[i], num2[i]) == multi[i]
+
+
+def test_calculator_divide():
+    """ To check if calculator division result is correct"""
+    # Arrange
+    calc_obj = Calculator()
+
+    # Act and Assert
+    for i in range(length):
+        assert calc_obj.division(num1[i], num2[i]) == div[i]
+</code></pre>
+            <br/><br/>
+            <p class="lead text-justify">Here, we are reading the data.csv file which contains following data </p>
+            <table class="table text-justify">
+                <thead>
+                <tr>
+                    <th>num_1</th>
+                    <th>num_2</th>
+                    <th>add_nums</th>
+                    <th>sub_nums</th>
+                    <th>mult_nums</th>
+                    <th>div_nums</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>70</td>
+                    <td>48</td>
+                    <td>118</td>
+                    <td>22</td>
+                    <td>3360</td>
+                    <td>1.458333333</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td>61</td>
+                    <td>90</td>
+                    <td>-32</td>
+                    <td>1769</td>
+                    <td>0.475409836</td>
+                </tr>
+                <tr>
+                    <td>84</td>
+                    <td>25</td>
+                    <td>109</td>
+                    <td>59</td>
+                    <td>2100</td>
+                    <td>3.36</td>
+                </tr>
+                <tr>
+                    <td>38</td>
+                    <td>53</td>
+                    <td>91</td>
+                    <td>-15</td>
+                    <td>2014</td>
+                    <td>0.716981132</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td>11</td>
+                    <td>39</td>
+                    <td>17</td>
+                    <td>308</td>
+                    <td>2.545454545</td>
+                </tr>
+                </tbody>
+            </table>
+            <p class="lead text-justify">
+                <a class="btn-link" href="https://github.com/aps358/IS601_P2_Demo/tree/article2-AAA_testing">Click
+                    here</a> to view the files in Github.
+            </p>
+        </div>
+    </div>
+
+    <!--There is where the footer will go-->
+    <div id="footer">
+        <footer class="sticky-footer bg-primary container-fluid mt-auto">
+            <div class="container-fluid">
+                <div class="row text-center">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <span class="text-lead" id="github-link"> <a
+                                href="https://github.com/aps358/KA_History_of_Internet/tree/Project2">GitHub Link</a></span>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <span class="text-lead">&copy; Amey Sawant </span>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <span class="text-lead" id="W3C_Validator"> <a
+                                href="https://validator.w3.org/nu/?doc=http%3A%2F%2Fapshoip2.eastus.azurecontainer.io%2Fp2_article2.html">W3C Validation</a></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+{% endblock %}
