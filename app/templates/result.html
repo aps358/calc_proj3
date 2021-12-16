@@ -23,15 +23,13 @@
         </tr>
         </thead>
         <tbody>
-        {% set list1 = hist.split('\n') %}
-        {% for item in list1 %}
-        {% set subitem = item.split(',') %}
+        {% for item in hist %}
         <tr>
             <td>{{ list1.index(item)+1 }}</td>
-            <td>{{ subitem[0] }}</td>
-            <td>{{ subitem[1] }}</td>
-            <td>{{ subitem[2] }}</td>
-            <td>{{ subitem[3] }}</td>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
         </tr>
         {% endfor %}
         </tbody>
